@@ -4,7 +4,11 @@ from typing import Optional
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_prefix="RIVYOZ_", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
+        populate_by_name=True,
+    )
 
     # Supabase
     supabase_url: str = Field(..., alias="SUPABASE_URL")
@@ -16,15 +20,15 @@ class Settings(BaseSettings):
     # HTTP client
     request_timeout: int = 30
     max_retries: int = 4
-    retry_backoff_base: float = 2.0         # seconds: 2, 4, 8, 16
+    retry_backoff_base: float = 2.0
     concurrent_requests: int = 5
     user_agent_rotate: bool = True
 
     # Rate limiting (requests per second per domain)
-    rate_limit_pricena: float = 0.5         # 1 req / 2 sec — polite default
+    rate_limit_pricena: float = 0.5
 
     # Deduplication
-    fuzzy_match_threshold: int = 88         # rapidfuzz score 0-100
+    fuzzy_match_threshold: int = 88
     min_name_length: int = 5
 
     # Scraping targets
@@ -36,12 +40,6 @@ class Settings(BaseSettings):
     max_categories: int = 0
     max_products_per_category: int = 0
     max_pages_per_category: int = 0
-
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        extra="ignore",
-        populate_by_name=True,
-    )
 
 
 settings = Settings()  # type: ignore[call-arg]

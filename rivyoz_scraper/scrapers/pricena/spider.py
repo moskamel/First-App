@@ -36,25 +36,30 @@ class PricenaSpider:
 
     # ------------------------------------------------------------------
 
-    async def run(self, clear_cache: bool = False) -> ScrapeJobRecord:
+    async def run(self, clear_cache: bool = False, output_file: str | None = None) -> ScrapeJobRecord:
         job = ScrapeJobRecord(source="pricena", status="running")
 
-        # Initialize Supabase client (sync SDK wrapped in executor)
-        self.db_client = create_client(
-            settings.supabase_url,
-            settings.supabase_key,
-        )
-        self.db_pipeline = DatabasePipeline(self.db_client)
+        # Choose pipeline: file sink (offline) or live Supabase
+        from rivyoz_scraper.pipelines.file_sink import FileSinkPipeline
 
-        # Warm dedup index from existing DB data
-        await self.db_pipeline.warm_up()
-
-        # Create job record in DB (best-effort — scraper_jobs table optional)
+        file_sink: Optional[FileSinkPipeline] = None
         job_id: Optional[str] = None
-        try:
-            job_id = await self.db_pipeline.create_job(job)
-        except Exception:
-            pass  # table may not exist yet; don't block scraping
+
+        if output_file:
+            file_sink = FileSinkPipeline(output_file)
+            file_sink.open()
+            log.info("pipeline_mode", mode="file_sink", output=output_file)
+        else:
+            self.db_client = create_client(
+                settings.supabase_url,
+                settings.supabase_key,
+            )
+            self.db_pipeline = DatabasePipeline(self.db_client)
+            await self.db_pipeline.warm_up()
+            try:
+                job_id = await self.db_pipeline.create_job(job)
+            except Exception:
+                pass
 
         rate_limiter = RateLimiter({"pricena.com": settings.rate_limit_pricena})
         url_cache = UrlCache(redis_url=settings.redis_url)
@@ -96,14 +101,13 @@ class PricenaSpider:
                     )
 
                     # 4. Normalize + persist each product
+                    pipeline = file_sink or self.db_pipeline
                     for raw in raw_products:
                         try:
                             raw = normalize_product(raw)
-                            # Attach category from breadcrumb if missing
                             if not raw.category_path_ar and category.name_ar:
                                 raw.category_path_ar = [category.name_ar]
-
-                            await self.db_pipeline.process_product(raw, job)
+                            await pipeline.process_product(raw, job)
                         except Exception as exc:
                             log.error(
                                 "product_pipeline_error",
@@ -120,10 +124,13 @@ class PricenaSpider:
                 )
 
         # 5. Finalize job
+        if file_sink:
+            file_sink.close()
+
         job.status = "completed" if job.errors == 0 else "completed_with_errors"
         job.finished_at = datetime.utcnow()
 
-        if job_id:
+        if job_id and self.db_pipeline:
             try:
                 await self.db_pipeline.finish_job(job_id, job)
             except Exception:

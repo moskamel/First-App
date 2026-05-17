@@ -18,7 +18,6 @@ import structlog
 structlog.configure(
     processors=[
         structlog.stdlib.add_log_level,
-        structlog.stdlib.add_logger_name,
         structlog.dev.ConsoleRenderer(),
     ]
 )
@@ -67,7 +66,8 @@ def migrate() -> None:
 @click.option("--clear-cache", is_flag=True, default=False, help="Clear visited URL cache before starting.")
 @click.option("--max-categories", default=0, help="Limit categories (0=all).")
 @click.option("--max-products", default=0, help="Limit products per category (0=all).")
-def scrape(source: str, clear_cache: bool, max_categories: int, max_products: int) -> None:
+@click.option("--output", default=None, help="Write scraped data to this JSON Lines file instead of Supabase.")
+def scrape(source: str, clear_cache: bool, max_categories: int, max_products: int, output: str | None) -> None:
     """Run the scraper for the given SOURCE."""
     from rivyoz_scraper.config import settings
 
@@ -83,7 +83,7 @@ def scrape(source: str, clear_cache: bool, max_categories: int, max_products: in
         from rivyoz_scraper.scrapers.pricena import PricenaSpider
 
         spider = PricenaSpider()
-        job = asyncio.run(spider.run(clear_cache=clear_cache))
+        job = asyncio.run(spider.run(clear_cache=clear_cache, output_file=output))
 
         click.echo("\n=== Scrape Summary ===")
         click.echo(f"Status          : {job.status}")
