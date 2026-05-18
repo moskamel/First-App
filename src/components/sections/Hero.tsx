@@ -169,7 +169,7 @@ export default function Hero({ data }: HeroProps) {
 
             {/* Badge */}
             {data.badge && (
-              <div className="flex justify-end mb-6">
+              <div className="flex justify-start mb-6">
                 <Badge variant="soft">
                   <span className="inline-block w-2 h-2 rounded-full bg-primary ml-2 animate-pulse" />
                   {data.badge}
@@ -206,7 +206,7 @@ export default function Hero({ data }: HeroProps) {
             )}
 
             {/* Store badges */}
-            <div className="flex flex-wrap gap-3 justify-end mb-10">
+            <div className="flex flex-wrap gap-3 justify-start mb-10">
               <a
                 href={data.appStoreUrl ?? '#'}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-pin transition-all duration-200 hover:opacity-90"
@@ -236,7 +236,7 @@ export default function Hero({ data }: HeroProps) {
             </div>
 
             {/* Stats row */}
-            <div className="flex flex-wrap gap-8 justify-end">
+            <div className="flex flex-wrap gap-8 justify-start">
               {[
                 { value: data.stat1Value ?? '+10,000', label: data.stat1Label ?? 'منتج متاح' },
                 { value: data.stat2Value ?? '+50',     label: data.stat2Label ?? 'متجر إلكتروني' },
