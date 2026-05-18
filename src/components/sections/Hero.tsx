@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 
 interface HeroData {
@@ -205,19 +204,6 @@ export default function Hero({ data }: HeroProps) {
                 {data.description}
               </p>
             )}
-
-            {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4 justify-end mb-8">
-              <Button variant="primary" size="lg" href={data.appStoreUrl ?? '#'}>
-                <svg className="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.42c1.42.07 2.38.74 3.2.8 1.18-.24 2.34-.93 3.6-.85 1.54.12 2.69.73 3.44 1.88-3.26 1.97-2.57 6.16.64 7.41-.66 1.9-1.5 3.73-2.88 5.62zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                </svg>
-                {data.primaryCta ?? 'حمّل مجاناً'}
-              </Button>
-              <Button variant="secondary" size="lg" href="#features">
-                {data.secondaryCta ?? 'استكشف المنتجات'}
-              </Button>
-            </div>
 
             {/* Store badges */}
             <div className="flex flex-wrap gap-3 justify-end mb-10">
