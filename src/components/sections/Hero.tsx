@@ -52,8 +52,8 @@ export default function Hero({ data }: HeroProps) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* ── Phone visual ── RIGHT column (order-1 = first in RTL grid = right side) */}
-          <div className="relative order-1 flex justify-center items-center min-h-[480px] lg:min-h-[560px]">
+          {/* ── Phone visual ── LEFT column (order-2 = second in RTL grid = left side) */}
+          <div className="relative order-2 flex justify-center items-center min-h-[480px] lg:min-h-[560px]">
             <div className="relative w-60 h-[480px] sm:w-68 sm:h-[520px]" style={{ width: '15rem', height: '30rem' }}>
 
               {/* Glow ring behind phone */}
@@ -134,13 +134,13 @@ export default function Hero({ data }: HeroProps) {
                 <div className="absolute top-3 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-[#1a0a2e] rounded-full" />
               </div>
 
-              {/* ── Floating cards — all on LEFT side of phone (towards center) ── */}
+              {/* ── Floating cards — RIGHT side of phone (towards center) ── */}
               {floatingCards.map((card, i) => {
                 const positions = [
-                  { top: '-16px', left: '-140px' },   // card 0: top-left
-                  { top: '20%',   left: '-160px' },   // card 1: upper-left
-                  { top: '52%',   left: '-155px' },   // card 2: lower-left
-                  { bottom: '-16px', left: '-140px' }, // card 3: bottom-left
+                  { top: '-16px',    right: '-148px' },  // card 0: top-right
+                  { top: '18%',      right: '-162px' },  // card 1: upper-right
+                  { top: '52%',      right: '-158px' },  // card 2: lower-right
+                  { bottom: '-16px', right: '-148px' },  // card 3: bottom-right
                 ]
                 const pos = positions[i]
                 return (
@@ -165,12 +165,12 @@ export default function Hero({ data }: HeroProps) {
             </div>
           </div>
 
-          {/* ── Text content ── LEFT column (order-2 = second in RTL grid = left side) */}
-          <div className="order-2 text-right">
+          {/* ── Text content ── RIGHT column (order-1 = first in RTL grid = right side) */}
+          <div className="order-1 text-right">
 
             {/* Badge */}
             {data.badge && (
-              <div className="flex justify-start mb-6">
+              <div className="flex justify-end mb-6">
                 <Badge variant="soft">
                   <span className="inline-block w-2 h-2 rounded-full bg-primary ml-2 animate-pulse" />
                   {data.badge}
@@ -207,7 +207,7 @@ export default function Hero({ data }: HeroProps) {
             )}
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4 justify-start mb-8">
+            <div className="flex flex-wrap gap-4 justify-end mb-8">
               <Button variant="primary" size="lg" href={data.appStoreUrl ?? '#'}>
                 <svg className="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.42c1.42.07 2.38.74 3.2.8 1.18-.24 2.34-.93 3.6-.85 1.54.12 2.69.73 3.44 1.88-3.26 1.97-2.57 6.16.64 7.41-.66 1.9-1.5 3.73-2.88 5.62zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
@@ -220,7 +220,7 @@ export default function Hero({ data }: HeroProps) {
             </div>
 
             {/* Store badges */}
-            <div className="flex flex-wrap gap-3 justify-start mb-10">
+            <div className="flex flex-wrap gap-3 justify-end mb-10">
               <a
                 href={data.appStoreUrl ?? '#'}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-pin transition-all duration-200 hover:opacity-90"
@@ -250,7 +250,7 @@ export default function Hero({ data }: HeroProps) {
             </div>
 
             {/* Stats row */}
-            <div className="flex flex-wrap gap-8 justify-start">
+            <div className="flex flex-wrap gap-8 justify-end">
               {[
                 { value: data.stat1Value ?? '+10,000', label: data.stat1Label ?? 'منتج متاح' },
                 { value: data.stat2Value ?? '+50',     label: data.stat2Label ?? 'متجر إلكتروني' },
