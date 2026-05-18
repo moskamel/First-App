@@ -19,13 +19,13 @@ import CTA from '@/components/sections/CTA'
 import Footer from '@/components/sections/Footer'
 
 export default function HomePage() {
-  const heroData = getHeroContent() as Record<string, unknown>
-  const featuresData = getFeaturesContent() as Record<string, unknown>
-  const categoriesData = getCategoriesContent() as Record<string, unknown>
-  const testimonialsData = getTestimonialsContent() as Record<string, unknown>
-  const faqData = getFaqContent() as Record<string, unknown>
-  const statsData = getStatsContent() as Record<string, unknown>
-  const footerData = getFooterContent() as Record<string, unknown>
+  const heroData = getHeroContent().data
+  const featuresData = getFeaturesContent().data
+  const categoriesData = getCategoriesContent().data
+  const testimonialsData = getTestimonialsContent().data
+  const faqData = getFaqContent().data
+  const statsData = getStatsContent().data
+  const footerData = getFooterContent().data
 
   return (
     <main dir="rtl" className="font-arabic">
