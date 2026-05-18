@@ -12,29 +12,29 @@ export function parseMarkdown(filename: string): { data: Record<string, unknown>
 }
 
 export function getHeroContent() {
-  return parseMarkdown('hero.md').data
+  return { data: parseMarkdown('hero.md').data }
 }
 
 export function getFeaturesContent() {
-  return parseMarkdown('features.md').data
+  return { data: parseMarkdown('features.md').data }
 }
 
 export function getCategoriesContent() {
-  return parseMarkdown('categories.md').data
+  return { data: parseMarkdown('categories.md').data }
 }
 
 export function getTestimonialsContent() {
-  return parseMarkdown('testimonials.md').data
+  return { data: parseMarkdown('testimonials.md').data }
 }
 
 export function getFaqContent() {
-  return parseMarkdown('faq.md').data
+  return { data: parseMarkdown('faq.md').data }
 }
 
 export function getStatsContent() {
-  return parseMarkdown('stats.md').data
+  return { data: parseMarkdown('stats.md').data }
 }
 
 export function getFooterContent() {
-  return parseMarkdown('footer.md').data
+  return { data: parseMarkdown('footer.md').data }
 }
