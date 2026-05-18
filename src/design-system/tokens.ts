@@ -1,0 +1,21 @@
+export const tokens = {
+  colors: {
+    primary: '#F58762',
+    primaryMid: '#C95FA0',
+    primaryDeep: '#432467',
+    gradient: 'linear-gradient(135deg, #F58762, #C95FA0, #432467)',
+    canvas: '#ffffff',
+    surfaceSoft: '#FDF8FF',
+    surfaceCard: '#FDF8FF',
+    bgGradientStart: '#FCDDD0',
+    bgGradientMid: '#FDF8FF',
+    bgGradientEnd: '#E5D4F2',
+    ink: '#1a0a2e',
+    body: '#3d2460',
+    mute: '#8b7aaa',
+    hairline: '#e8daf4',
+  },
+  radius: { sm: '8px', md: '16px', lg: '32px', full: '9999px' },
+  spacing: { section: '64px' },
+  font: { arabic: '"Zain", system-ui, sans-serif' },
+}
