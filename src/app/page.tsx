@@ -1,7 +1,6 @@
 import {
   getHeroContent,
   getFeaturesContent,
-  getCategoriesContent,
   getTestimonialsContent,
   getFaqContent,
   getStatsContent,
@@ -11,7 +10,6 @@ import {
 import Navbar from '@/components/sections/Navbar'
 import Hero from '@/components/sections/Hero'
 import Features from '@/components/sections/Features'
-import Categories from '@/components/sections/Categories'
 import Stats from '@/components/sections/Stats'
 import Testimonials from '@/components/sections/Testimonials'
 import FAQ from '@/components/sections/FAQ'
@@ -21,7 +19,6 @@ import Footer from '@/components/sections/Footer'
 export default function HomePage() {
   const heroData = getHeroContent().data
   const featuresData = getFeaturesContent().data
-  const categoriesData = getCategoriesContent().data
   const testimonialsData = getTestimonialsContent().data
   const faqData = getFaqContent().data
   const statsData = getStatsContent().data
@@ -36,8 +33,6 @@ export default function HomePage() {
       <Features data={featuresData as any} />
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <Stats data={statsData as any} />
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-      <Categories data={categoriesData as any} />
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <Testimonials data={testimonialsData as any} />
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}

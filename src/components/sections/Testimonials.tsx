@@ -1,8 +1,7 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { useInView } from '@/hooks/useInView'
 
 interface Testimonial {
   name: string
@@ -72,73 +71,159 @@ const fallbackTestimonials: Testimonial[] = [
     text: 'ممتاز لمقارنة أسعار المعدات التقنية. وفّرت مئات الريالات على آخر كاميرا اشتريتها.',
     location: 'الكويت',
   },
+  {
+    name: 'ليلى حسن',
+    role: 'معلّمة',
+    avatar: 'ل',
+    rating: 5,
+    text: 'أنصح به كل من يريد أن يتسوق بذكاء. المقارنة السريعة بين المتاجر توفّر الوقت والمال.',
+    location: 'عمّان، الأردن',
+  },
+  {
+    name: 'أحمد الشمري',
+    role: 'محاسب',
+    avatar: 'أ',
+    rating: 5,
+    text: 'واجهة التطبيق جميلة وسهلة الاستخدام. أحب كيف يعرض مقارنة الأسعار بشكل واضح.',
+    location: 'الكويت',
+  },
 ]
+
+function TestimonialCard({ t }: { t: Testimonial }) {
+  return (
+    <div
+      style={{
+        minWidth: '320px',
+        maxWidth: '320px',
+        background: 'white',
+        borderRadius: '20px',
+        border: '1px solid #e8daf4',
+        padding: '24px',
+        boxShadow: '0 2px 16px rgba(67,36,103,0.06)',
+        flexShrink: 0,
+      }}
+    >
+      {/* Stars */}
+      <div className="flex gap-1 mb-3">
+        {Array.from({ length: t.rating }).map((_, j) => (
+          <span key={j} style={{ color: '#f59e0b', fontSize: '16px' }}>★</span>
+        ))}
+      </div>
+
+      {/* Quote */}
+      <p
+        style={{
+          color: '#3d2460',
+          fontSize: '14px',
+          lineHeight: 1.85,
+          marginBottom: '16px',
+          textAlign: 'right',
+          fontFamily: 'inherit',
+        }}
+      >
+        &ldquo;{t.text}&rdquo;
+      </p>
+
+      {/* Author */}
+      <div className="flex items-center gap-3">
+        <div
+          style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #F58762, #C95FA0)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            fontWeight: 900,
+            fontSize: '16px',
+            flexShrink: 0,
+          }}
+        >
+          {t.avatar}
+        </div>
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontWeight: 700, color: '#1a0a2e', fontSize: '13px' }}>{t.name}</div>
+          <div style={{ color: '#8b7aaa', fontSize: '11px' }}>{t.role} · {t.location}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Testimonials({ data }: TestimonialsProps) {
   const testimonials = (data.testimonials as Testimonial[] | undefined)?.length
     ? (data.testimonials as Testimonial[])
     : fallbackTestimonials
-  const { ref, inView } = useInView(0.05)
+
+  // Duplicate for seamless loop
+  const row1 = [...testimonials, ...testimonials]
+  const row2 = [...testimonials.slice().reverse(), ...testimonials.slice().reverse()]
 
   return (
     <section
       id="testimonials"
-      className="section-padding bg-white/50"
+      className="section-padding"
       dir="rtl"
-      ref={ref as React.RefObject<HTMLElement>}
+      style={{ overflow: 'hidden' }}
     >
+      <style>{`
+        @keyframes marqueeRtl {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        @keyframes marqueeLtr {
+          from { transform: translateX(-50%); }
+          to   { transform: translateX(0); }
+        }
+        .marquee-track-rtl {
+          animation: marqueeRtl 30s linear infinite;
+          will-change: transform;
+        }
+        .marquee-track-ltr {
+          animation: marqueeLtr 36s linear infinite;
+          will-change: transform;
+        }
+        .marquee-wrap:hover .marquee-track-rtl,
+        .marquee-wrap:hover .marquee-track-ltr {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={data.sectionBadge}
           title={data.sectionTitle ?? 'آراء المستخدمين'}
         />
+      </div>
 
-        {/* Masonry columns */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="break-inside-avoid mb-6 bg-white rounded-2xl border border-[#e8daf4] p-6"
-              style={{
-                transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 100}ms`,
-                opacity: inView ? 1 : 0,
-                transform: inView ? 'translateY(0)' : 'translateY(32px)',
-                boxShadow: '0 2px 16px rgba(67,36,103,0.06)',
-              }}
-            >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <span key={j} className="text-amber-400 text-lg">★</span>
-                ))}
-              </div>
-
-              {/* Quote text */}
-              <p
-                className="text-[#3d2460] text-base mb-5 font-arabic text-right font-medium"
-                style={{ lineHeight: 1.9 }}
-              >
-                &ldquo;{t.text}&rdquo;
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #F58762, #C95FA0)' }}
-                >
-                  {t.avatar}
-                </div>
-                <div className="text-right">
-                  <div className="font-bold text-[#1a0a2e] text-sm font-arabic">{t.name}</div>
-                  <div className="text-[#8b7aaa] text-xs font-arabic">{t.role} · {t.location}</div>
-                </div>
-              </div>
-            </div>
+      {/* Row 1 — right to left */}
+      <div className="marquee-wrap" style={{ marginBottom: '20px' }}>
+        <div
+          className="marquee-track-rtl"
+          style={{ display: 'flex', gap: '20px', width: 'max-content' }}
+        >
+          {row1.map((t, i) => (
+            <TestimonialCard key={i} t={t} />
           ))}
         </div>
+      </div>
 
-        {/* Trust indicators */}
+      {/* Row 2 — left to right */}
+      <div className="marquee-wrap">
+        <div
+          className="marquee-track-ltr"
+          style={{ display: 'flex', gap: '20px', width: 'max-content' }}
+        >
+          {row2.map((t, i) => (
+            <TestimonialCard key={i} t={t} />
+          ))}
+        </div>
+      </div>
+
+      {/* Trust indicators */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-12 flex flex-wrap justify-center gap-6">
           {[
             { icon: '✅', label: 'مراجعات حقيقية ومعتمدة' },
