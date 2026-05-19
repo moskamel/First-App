@@ -2,6 +2,12 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 
+const slugs = ["ai-product-scanning", "save-money-shopping", "ramadan-deals-2026", "rewards-guide"];
+
+export function generateStaticParams() {
+  return slugs.map((slug) => ({ slug }));
+}
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   return (
