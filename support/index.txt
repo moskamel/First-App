@@ -1,0 +1,35 @@
+1:"$Sreact.fragment"
+2:I[7555,[],""]
+3:I[1295,[],""]
+4:I[894,[],"ClientPageRoot"]
+5:I[4137,["874","static/chunks/874-e2d9fd6bf963052c.js","921","static/chunks/921-6936ce2102da37af.js","787","static/chunks/787-ce1cc1e065ebb7a4.js","174","static/chunks/app/support/page-1aff5a499486c58e.js"],"default"]
+8:I[9665,[],"MetadataBoundary"]
+a:I[9665,[],"OutletBoundary"]
+d:I[4911,[],"AsyncMetadataOutlet"]
+f:I[9665,[],"ViewportBoundary"]
+11:I[6614,[],""]
+:HL["/Rivyoz/_next/static/media/11f5e7c863514a23-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/3b08647a3d6c23dc-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/435ec828be542d39-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/4cf021836bf44647-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/558ca1a6aa3cb55e-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/675503b1099ebcea-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/72f4b74c29482e54-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/73d17ea185307dea-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/76b247f56f6c7f3b-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/af5b161cdb90eeac-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/d8e2751d6951649a-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/f6b108b9f065039e-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/media/fee8e25f6fbbd76e-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Rivyoz/_next/static/css/b696df827fdcf9af.css","style"]
+0:{"P":null,"b":"FXcx_1HrRwPoHNPnYABjD","p":"/Rivyoz","c":["","support",""],"i":false,"f":[[["",{"children":["support",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Rivyoz/_next/static/css/b696df827fdcf9af.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ar","dir":"rtl","className":"__variable_bbb753 __variable_2412b9","children":["$","body",null,{"className":"font-[family-name:var(--font-zain)]","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["support",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L4",null,{"Component":"$5","searchParams":{},"params":{},"promises":["$@6","$@7"]}],["$","$L8",null,{"children":"$L9"}],null,["$","$La",null,{"children":["$Lb","$Lc",["$","$Ld",null,{"promise":"$@e"}]]}]]}],{},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","JWJFjW_-qT8km-7Du8G0Y",{"children":[["$","$Lf",null,{"children":"$L10"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$11","$undefined"],"s":false,"S":true}
+12:"$Sreact.suspense"
+13:I[4911,[],"AsyncMetadata"]
+6:{}
+7:{}
+9:["$","$12",null,{"fallback":null,"children":["$","$L13",null,{"promise":"$@14"}]}]
+c:null
+10:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+b:null
+14:{"metadata":[["$","title","0",{"children":"ريفيوز — اكتشف. قارن. اشترِ بذكاء"}],["$","meta","1",{"name":"description","content":"تطبيق عربي يجمع لك آلاف المنتجات من أكبر المتاجر، يقارن أسعارها لحظياً، ويُريك المراجعات الحقيقية — كل ذلك بمسحة كاميرا واحدة."}],["$","meta","2",{"name":"keywords","content":"ريفيوز,مقارنة أسعار,تسوق,منتجات,تطبيق عربي"}],["$","meta","3",{"property":"og:title","content":"ريفيوز — اكتشف. قارن. اشترِ بذكاء"}],["$","meta","4",{"property":"og:description","content":"تطبيق عربي لاكتشاف المنتجات ومقارنة الأسعار"}],["$","meta","5",{"property":"og:locale","content":"ar_EG"}],["$","meta","6",{"property":"og:type","content":"website"}],["$","meta","7",{"name":"twitter:card","content":"summary"}],["$","meta","8",{"name":"twitter:title","content":"ريفيوز — اكتشف. قارن. اشترِ بذكاء"}],["$","meta","9",{"name":"twitter:description","content":"تطبيق عربي لاكتشاف المنتجات ومقارنة الأسعار"}]],"error":null,"digest":"$undefined"}
+e:{"metadata":"$14:metadata","error":null,"digest":"$undefined"}
