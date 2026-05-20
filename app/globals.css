@@ -104,13 +104,13 @@ a {
 }
 
 @keyframes float-y-slow {
-  0%, 100% { transform: translateY(0px) rotate(-6deg); }
-  50% { transform: translateY(-8px) rotate(-6deg); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes float-y-alt {
-  0%, 100% { transform: translateY(0px) rotate(6deg); }
-  50% { transform: translateY(-10px) rotate(6deg); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 .float-anim { animation: float-y 4s ease-in-out infinite; }

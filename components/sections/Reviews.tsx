@@ -99,7 +99,7 @@ export default function Reviews() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="font-black leading-[1.35] tracking-tighter max-w-3xl"
-          style={{ fontSize: "clamp(44px, 5vw, 76px)", color: "#1B0E2B" }}
+          style={{ fontSize: "clamp(32px, 4vw, 58px)", color: "#1B0E2B" }}
         >
           تقييمات حقيقية،
           <br />

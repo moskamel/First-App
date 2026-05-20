@@ -31,7 +31,7 @@ export default function Categories() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="font-black leading-[1.35] tracking-tighter"
-              style={{ fontSize: "clamp(44px, 5vw, 84px)", color: "#1B0E2B" }}
+              style={{ fontSize: "clamp(32px, 4vw, 60px)", color: "#1B0E2B" }}
             >
               كل ما تحتاج،
               <br />

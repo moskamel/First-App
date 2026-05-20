@@ -100,8 +100,8 @@ export default function AIScanFeature() {
           >
             <SectionLabel num="٠١" title="المسح بالكاميرا" color="#F58762" />
             <h2
-              className="font-black leading-[1.35] tracking-tighter mb-7"
-              style={{ fontSize: "clamp(44px, 5vw, 84px)" }}
+              className="font-black leading-[1.3] tracking-tight mb-7"
+              style={{ fontSize: "clamp(32px, 4vw, 60px)" }}
             >
               وجّه كاميرتك<br />
               <span style={{ color: "#F58762" }}>وستعرف كل شيء.</span>

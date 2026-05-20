@@ -36,7 +36,7 @@ export default function PriceCompareFeature() {
             <SectionLabel num="٠٢" title="مقارنة الأسعار" />
             <h2
               className="font-black leading-[1.35] tracking-tighter mb-7"
-              style={{ fontSize: "clamp(44px, 5vw, 84px)", color: "#1B0E2B" }}
+              style={{ fontSize: "clamp(32px, 4vw, 60px)", color: "#1B0E2B" }}
             >
               <span className="grad-text">سعر واحد</span>
               <br />

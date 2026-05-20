@@ -62,8 +62,8 @@ export default function Rewards() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-black leading-[1.35] tracking-tighter"
-              style={{ fontSize: "clamp(44px, 5vw, 84px)" }}
+              className="font-black leading-[1.3] tracking-tight"
+              style={{ fontSize: "clamp(32px, 4vw, 60px)" }}
             >
               راجِع. اكسب.<br />
               <span style={{ color: "#F58762" }}>ارتقِ.</span>

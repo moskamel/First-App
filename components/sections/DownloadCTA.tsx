@@ -13,7 +13,7 @@ export default function DownloadCTA() {
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none font-black leading-none tracking-tighter"
         style={{
-          fontSize: "clamp(140px, 22vw, 340px)",
+          fontSize: "clamp(100px, 18vw, 260px)",
           color: "rgba(255,255,255,0.08)",
           whiteSpace: "nowrap",
         }}
@@ -32,7 +32,7 @@ export default function DownloadCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="font-black leading-[1.3] tracking-tighter mb-7"
-          style={{ fontSize: "clamp(52px, 7vw, 110px)" }}
+          style={{ fontSize: "clamp(36px, 5vw, 80px)" }}
         >
           حمّل ريفيوز.<br />
           ابدأ التوفير اليوم.
